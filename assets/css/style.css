@@ -24,6 +24,7 @@ body {
 
 .tip {
   font-size: 0.7rem;
+  width: 80% !important;
 }
 
 .today-card,
