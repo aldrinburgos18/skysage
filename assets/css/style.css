@@ -2,6 +2,7 @@ body {
   background-color: #e1e3eb;
   width: 100%;
   overflow-x: hidden;
+  padding: 0 !important;
 }
 
 .main-content {
