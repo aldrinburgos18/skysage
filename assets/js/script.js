@@ -4,7 +4,7 @@ var isFahrenheit = true;
 var isMPH = true;
 
 var getCoord = function (city) {
-  fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`).then((response) => {
+  fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`).then((response) => {
     if (response.ok) {
       response.json().then((data) => {
         if (data.length) {
