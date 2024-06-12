@@ -192,7 +192,7 @@ var kphToMph = function () {
 
 var convertWind = function (windDeg, windSpeed, windUnit) {
   var directions = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"];
-  windDeg = Math.round((windDeg * 8) / 360);
+  windDeg = Math.round(((windDeg %= 360) < 0 ? windDeg + 360 : windDeg) / 45) % 8;
   windSpeed = Math.round((windSpeed * 10) / 10);
   return `${windSpeed}${windUnit} ${directions[windDeg]}`;
 };
@@ -236,9 +236,13 @@ $("#settingsModal .save-btn").click(function () {
   }
 
   if ($(windUnit).is(":checked")) {
-    mphToKph();
+    if (isMPH) {
+      mphToKph();
+    }
   } else {
-    kphToMph();
+    if (!isMPH) {
+      kphToMph();
+    }
   }
 
   $("#settingsModal").modal("hide");
