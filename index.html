@@ -3,14 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap5-toggle@5.1.1/css/bootstrap5-toggle.min.css" rel="stylesheet" />
     <title>SkySage Weather</title>
   </head>
   <body>
     <header>
       <nav class="navbar navbar-dark bg-dark d-flex justify-content-end p-1">
-        <div class="d-flex fs-4">⚙</div>
+        <div class="d-flex fs-4">
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#settingsModal">
+            Settings
+          </button>
+        </div>
       </nav>
     </header>
 
@@ -19,112 +25,90 @@
         <div class="jumbotron text-center">
           <img src="./assets/img/skysage.svg" class="logo" />
           <h1 class="display-1 mb-0">SkySage</h1>
-          <p class="lead">Powered by <a href="https://openweathermap.org/>">OpenWeather API</a>.</p>
+          <p class="lead">Powered by <a href="https://openweathermap.org/">OpenWeather API</a>.</p>
           <hr class="my-4" />
           <div class="row justify-content-center">
             <div class="input-group w-75 w-lg-75 w-xl-50">
-              <input type="text" class="form-control" placeholder="Enter city name..." />
-              <button class="btn btn-outline-secondary" type="button" id="search-btn">Search</button>
+              <input type="text" class="form-control" placeholder="Enter city name..." id="search" />
             </div>
-            <p class="text-muted p-0 tip">Tip: Enter country code for a more accurate result.</p>
+            <p class="text-muted p-0 tip">
+              Tip: Enter country code separated by comma for a more accurate result. (Ex. San Francisco, US)
+            </p>
           </div>
         </div>
 
-        <div class="mt-4 row justify-content-center text">
-          <div class="card border-0 p-0 w-lg-75 w-xl-50 today-card">
-            <div class="card-header">Today's Weather</div>
-            <div class="card-body bg-info bg-gradient">
-              <div class="text-center align-top">
-                <div class="d-inline-block align-top cweather-img">
-                  <img src="./assets/img/showers.svg" class="mr-2" />
-                </div>
-                <div class="d-inline-block cweather-info">
-                  <p class="display-2 m-0 text-center">74°</p>
-                  <div class="d-inline-block text-start temp">
-                    <p class="m-0 mb-1">Feels Like <strong>2000°</strong></p>
-                    <p class="m-0 mb-1">Low <strong>40°</strong> | High <strong>80°</strong></p>
-                    <p class="m-0 mb-1">Humidity <strong>30%</strong></p>
-                  </div>
-                  <div class="d-inline-block text-start align-top">
-                    <p class="m-0 mb-1">Wind <strong>10mph</strong></p>
-                    <p class="m-0 mb-1">UV Index <strong>High</strong></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="alert alert-danger mb-4 w-lg-75 advisories">
-            <h3 class="text-center text-decoration-underline">Weather Alerts:</h3>
-            "* WHAT...Dangerously hot conditions for early June. High temperatures 107 to 114 degrees for Las Vegas and
-            Pahrump. 108 to 116 degrees for Mesquite and Overton. 118 to 122 degrees for Furnace Creek in Death Valley
-            National Park. * WHERE...In California, Death Valley National Park. In Nevada, Las Vegas Valley, Northeast
-            Clark County, and Western Clark and Southern Nye County. * WHEN...Until 9 PM PDT Saturday. * IMPACTS...Heat
-            related illnesses increase significantly during extreme heat events. * ADDITIONAL DETAILS...There will be
-            little relief during the overnights, especially in the Las Vegas Valley and the lower elevations of Death
-            Valley National Park."
-          </div>
-        </div>
+        <div class="mt-4 row justify-content-center text" id="today-container"></div>
       </div>
 
-      <div class="forecast text-center">
-        <h3>5 day forecast for <strong>Makati, PH:</strong></h3>
+      <div class="forecast text-center" style="display: none">
+        <h3>5-day Weather Forecast:</h3>
 
-        <div class="row justify-content-center">
-          <div class="card forecast-card">
-            <div class="card-header">06/05, Wednesday</div>
-            <ul class="list-group list-group-flush">
-              <img class="d-block mx-auto mb-1" src="https://openweathermap.org/img/wn/10d.png" height="100" />
-              <li class="list-group-item pt-1 pb-1 border-0">High: 70° | Low: 40°</li>
-              <li class="list-group-item pt-1 pb-1 border-0">Humidity: 40%</li>
-              <li class="list-group-item pt-1 pb-1 border-0">Wind: 20mph ↖</li>
-              <li class="list-group-item pt-1 pb-1 border-0">UV: Low</li>
-            </ul>
-          </div>
-          <div class="card forecast-card">
-            <div class="card-header">06/05, Wednesday</div>
-            <ul class="list-group list-group-flush">
-              <img class="d-block mx-auto mb-1" src="https://openweathermap.org/img/wn/10d.png" height="100" />
-              <li class="list-group-item pt-1 pb-1 border-0">High: 70° | Low: 40°</li>
-              <li class="list-group-item pt-1 pb-1 border-0">Humidity: 40%</li>
-              <li class="list-group-item pt-1 pb-1 border-0">Wind: 20mph ↖</li>
-              <li class="list-group-item pt-1 pb-1 border-0">UV: Low</li>
-            </ul>
-          </div>
-          <div class="card forecast-card">
-            <div class="card-header">06/05, Wednesday</div>
-            <ul class="list-group list-group-flush">
-              <img class="d-block mx-auto mb-1" src="https://openweathermap.org/img/wn/10d.png" height="100" />
-              <li class="list-group-item pt-1 pb-1 border-0">High: 70° | Low: 40°</li>
-              <li class="list-group-item pt-1 pb-1 border-0">Humidity: 40%</li>
-              <li class="list-group-item pt-1 pb-1 border-0">Wind: 20mph ↖</li>
-              <li class="list-group-item pt-1 pb-1 border-0">UV: Low</li>
-            </ul>
-          </div>
-          <div class="card forecast-card">
-            <div class="card-header">06/05, Wednesday</div>
-            <ul class="list-group list-group-flush">
-              <img class="d-block mx-auto mb-1" src="https://openweathermap.org/img/wn/10d.png" height="100" />
-              <li class="list-group-item pt-1 pb-1 border-0">High: 70° | Low: 40°</li>
-              <li class="list-group-item pt-1 pb-1 border-0">Humidity: 40%</li>
-              <li class="list-group-item pt-1 pb-1 border-0">Wind: 20mph ↖</li>
-              <li class="list-group-item pt-1 pb-1 border-0">UV: Low</li>
-            </ul>
-          </div>
-          <div class="card forecast-card">
-            <div class="card-header">06/05, Wednesday</div>
-            <ul class="list-group list-group-flush">
-              <img class="d-block mx-auto mb-1" src="https://openweathermap.org/img/wn/10d.png" height="100" />
-              <li class="list-group-item pt-1 pb-1 border-0">High: 70° | Low: 40°</li>
-              <li class="list-group-item pt-1 pb-1 border-0">Humidity: 40%</li>
-              <li class="list-group-item pt-1 pb-1 border-0">Wind: 20mph ↖</li>
-              <li class="list-group-item pt-1 pb-1 border-0">UV: Low</li>
-            </ul>
+        <div class="row justify-content-center" id="forecast-container"></div>
+      </div>
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="settingsModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="modal-title"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modal-title">Settings</h5>
+              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="settings">
+                <p class="d-inline">Temperature Unit:</p>
+                <input
+                  type="checkbox"
+                  id="temp-unit"
+                  data-toggle="toggle"
+                  data-on="°C"
+                  data-off="°F"
+                  data-onstyle="primary"
+                  data-offstyle="primary"
+                  data-size="small"
+                  height="10px"
+                />
+              </div>
+              <div class="settings">
+                <p class="d-inline">Wind Speed Unit:</p>
+                <input
+                  type="checkbox"
+                  id="wspeed-unit"
+                  data-toggle="toggle"
+                  data-on="KPH"
+                  data-off="MPH"
+                  data-onstyle="primary"
+                  data-offstyle="primary"
+                  data-size="small"
+                  height="10px"
+                />
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary save-btn">Save changes</button>
+            </div>
           </div>
         </div>
       </div>
     </main>
 
     <footer></footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"></script>
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
     <script src="./assets/js/script.js"></script>
   </body>
 </html>

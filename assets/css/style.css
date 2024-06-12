@@ -9,12 +9,21 @@ body {
   margin-right: auto;
 }
 
+.settings {
+  margin: 10px;
+  text-align: center;
+}
+
 .logo {
   max-width: 10%;
 }
 
 .lead {
-  font-size: 14px;
+  font-size: 13px !important;
+}
+
+.tip {
+  font-size: 0.7rem;
 }
 
 .today-card,
@@ -26,21 +35,25 @@ body {
   width: 13rem;
 }
 
-.temp {
+.temp-div {
   margin-right: 1rem;
 }
 
-.advisories {
+.temp {
   margin: 0;
-  margin-top: 0.5rem;
 }
 
-.tip {
-  font-size: 0.8rem;
+.advisories {
+  margin: 0 !important;
+  margin-top: 0.5rem !important;
+}
+
+.forecast {
+  margin: 1rem 0;
 }
 
 .card-header {
-  background-color: white;
+  background-color: white !important;
 }
 
 .forecast-card {
