@@ -49,6 +49,7 @@ var getWeatherData = function (lat, lon, city) {
 };
 
 var displayTodayWeather = function (weather, city) {
+  var icon = weather.current.weather[0].icon;
   var tempUnit;
   var windUnit;
   if (isFahrenheit) {
@@ -64,10 +65,10 @@ var displayTodayWeather = function (weather, city) {
   }
   $("#today-container").html(`<div class="card border-0 p-0 w-lg-75 w-xl-50 today-card">
             <div class="card-header">Current Weather for ${city}</div>
-            <div class="card-body bg-info bg-gradient">
+            <div class="card-body w-${setBG(icon)}">
               <div class="text-center align-top">
                 <div class="d-inline-block align-top cweather-img">
-                  <img src="./assets/img/${weather.current.weather[0].icon}.svg" class="mr-2" />
+                  <img src="./assets/img/${icon}.svg" class="mr-2 ${setSVGColor(icon)}" id="icon"/>
                 </div>
                 <div class="d-inline-block cweather-info">
                   <p class="display-2 m-0 text-center"><span class="temp">${roundTemp(
@@ -207,6 +208,24 @@ var formatUv = function (uv) {
     return `${uv} (High)`;
   } else {
     return `${uv} (Extreme)`;
+  }
+};
+
+var setBG = function (weather) {
+  var dayOrNight = weather.split("")[2];
+  if (dayOrNight === "n") {
+    return weather + " text-white";
+  } else {
+    return weather;
+  }
+};
+
+var setSVGColor = function (weather) {
+  var dayOrNight = weather.split("")[2];
+  if (dayOrNight === "n") {
+    return "svg-white";
+  } else {
+    return ``;
   }
 };
 

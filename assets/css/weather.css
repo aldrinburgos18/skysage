@@ -1,0 +1,99 @@
+/* BACKGROUND GRADIENTS */
+
+.w-01d {
+  background: rgb(255, 221, 33);
+  background: radial-gradient(circle, rgba(255, 221, 33, 1) 0%, rgba(244, 231, 162, 1) 100%);
+}
+
+.w-02d {
+  background: rgb(255, 221, 33);
+  background: radial-gradient(
+    circle,
+    rgba(255, 221, 33, 1) 0%,
+    rgba(181, 169, 102, 1) 58%,
+    rgba(113, 108, 75, 1) 86%,
+    rgba(91, 87, 67, 1) 100%
+  );
+}
+
+.w-03d,
+.w-04d {
+  background: rgb(136, 120, 23);
+  background: radial-gradient(
+    circle,
+    rgba(136, 120, 23, 1) 0%,
+    rgba(93, 88, 57, 1) 58%,
+    rgba(75, 72, 52, 1) 86%,
+    rgba(57, 55, 43, 1) 100%
+  );
+}
+
+.w-09d {
+  background: rgb(87, 83, 66);
+  background: linear-gradient(0deg, rgba(87, 83, 66, 1) 0%, rgba(147, 137, 75, 1) 100%);
+}
+
+.w-10d {
+  background: rgb(97, 93, 78);
+  background: linear-gradient(0deg, rgba(97, 93, 78, 1) 0%, rgba(117, 111, 72, 1) 100%);
+}
+
+.w-11d {
+  background: rgb(69, 61, 33);
+  background: linear-gradient(0deg, rgba(69, 61, 33, 1) 0%, rgba(64, 61, 44, 1) 100%);
+}
+
+.w-13d {
+  background: rgb(255, 250, 250);
+  background: linear-gradient(0deg, rgba(255, 250, 250, 1) 0%, rgba(192, 246, 251, 1) 33%, rgba(147, 231, 251, 1) 100%);
+}
+
+.w-50d {
+  background: rgb(92, 93, 80);
+  background: linear-gradient(0deg, rgba(92, 93, 80, 1) 0%, rgba(143, 147, 117, 1) 100%);
+}
+
+.w-01n {
+  background: rgb(3, 0, 191);
+  background: radial-gradient(circle, rgba(3, 0, 191, 1) 0%, rgba(0, 0, 0, 1) 100%);
+}
+
+.w-02n {
+  background: rgb(6, 5, 38);
+  background: linear-gradient(0deg, rgba(6, 5, 38, 1) 0%, rgba(57, 54, 75, 1) 59%, rgba(50, 48, 134, 1) 100%);
+}
+
+.w-03n,
+.w-04n {
+  background: rgb(6, 5, 38);
+  background: linear-gradient(0deg, rgba(6, 5, 38, 1) 0%, rgba(43, 40, 61, 1) 57%, rgba(50, 49, 97, 1) 100%);
+}
+
+.w-09n {
+  background: rgb(20, 19, 42);
+  background: linear-gradient(0deg, rgba(20, 19, 42, 1) 0%, rgba(49, 45, 73, 1) 61%, rgba(50, 49, 97, 1) 100%);
+}
+
+.w-10n {
+  background: rgb(12, 11, 24);
+  background: linear-gradient(0deg, rgba(12, 11, 24, 1) 0%, rgba(42, 39, 62, 1) 61%, rgba(38, 37, 70, 1) 100%);
+}
+
+.w-11n {
+  background: rgb(7, 6, 13);
+  background: linear-gradient(0deg, rgba(7, 6, 13, 1) 0%, rgba(26, 21, 48, 1) 61%, rgba(27, 26, 54, 1) 100%);
+}
+
+.w-13n {
+  background: rgb(0, 117, 128);
+  background: linear-gradient(0deg, rgba(0, 117, 128, 1) 0%, rgba(28, 60, 68, 1) 100%);
+}
+
+.w-50n {
+  background: rgb(73, 78, 102);
+  background: linear-gradient(0deg, rgba(73, 78, 102, 1) 0%, rgba(79, 79, 105, 1) 100%);
+}
+
+.svg-white {
+  filter: invert(100%) sepia(35%) saturate(0%) hue-rotate(172deg) brightness(107%) contrast(101%);
+}
